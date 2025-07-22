@@ -15,7 +15,14 @@
     extensions = with pkgs.vscodeExtensions; [
     ];
     userSettings = {
-      "update.showNotes" = false;
+      "update.showReleaseNotes" = false;
+      "git.autofetch" =  true;
+      "editor.fontFamily" = "JetBrains Mono, monospace";
+      "editor.fontSize" = 14;
+      "editor.lineHeight" = 24;
+      "editor.tabSize" = 2;
+      "editor.wordWrap" = "on";
+      "editor.autosave" = "afterDelay";
     };
   };
 }
