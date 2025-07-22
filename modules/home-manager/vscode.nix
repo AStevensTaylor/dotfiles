@@ -23,6 +23,8 @@
       "editor.tabSize" = 2;
       "editor.wordWrap" = "on";
       "editor.autosave" = "afterDelay";
+      "git.enableSmartCommit": true
+
     };
   };
 }
