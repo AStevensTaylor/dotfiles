@@ -21,5 +21,13 @@
     withUWSM = true; # Enable uwsm support
   };
 
-  services.displayManager.gdm.enable = true;
+  services.greetd = {
+    enable = true;
+
+    settings = {
+      default_session = {
+        command = "${pkgs.greetd.greetd}/bin/agreety --cmd Hyprland";
+      };
+    };
+  };
 }

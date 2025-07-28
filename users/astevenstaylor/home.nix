@@ -1,9 +1,4 @@
 {
-    config,
-    inputs,
-    outputs,
-    osConfig,
-    pkgs,
     ...
 }: {
     imports = [
@@ -12,6 +7,8 @@
       ../../modules/home-manager/nh.nix
 
       ../../modules/home-manager/hyprland.nix
+      ../../modules/home-manager/anyrun.nix
+      ../../modules/home-manager/fonts.nix
 
       ./git.nix
     ];

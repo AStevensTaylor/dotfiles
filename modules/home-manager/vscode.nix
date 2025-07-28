@@ -1,10 +1,6 @@
 # A home-manger module for my configuration of VSCode
 
 {
-  config,
-  inputs, 
-  outputs,
-  osConfig,
   pkgs,
   ...
 }: {
@@ -12,7 +8,8 @@
   programs.vscode.profiles.default = {
     enableExtensionUpdateCheck = false;
     enableUpdateCheck = false;
-    extensions = with pkgs.vscodeExtensions; [
+    extensions = with pkgs.vscode-extensions; [
+      jnoortheen.nix-ide
     ];
     userSettings = {
       "update.showReleaseNotes" = false;
@@ -22,9 +19,37 @@
       "editor.lineHeight" = 24;
       "editor.tabSize" = 2;
       "editor.wordWrap" = "on";
-      "editor.autosave" = "afterDelay";
-      "git.enableSmartCommit": true
+      "files.autoSave" = "onFocusChange";
+      "git.enableSmartCommit" =  true;
 
+      /* Nix IDE settings */
+      "nix.enableLanguageServer" = true;
+      "nix.serverPath" = "${pkgs.nil}/bin/nil";
+      "nix.serverSettings" = {
+        nil = {
+          formatting = {
+            command = ["nixfmt"];
+          };
+        };
+      };
+    };
+    userMcp = {
+      servers = {
+        Github = {
+          url = "https://api.githubcopilot.com/mcp/";
+        };
+        Nix = {
+          type = "stdio";
+          command = "nix";
+          args = ["run" "github:utensils/mcp-nixos" "--"];
+        };
+      };
     };
   };
+
+  home.packages = with pkgs; [
+    /* Extra Dev tools */
+    uv
+    nixfmt
+  ];
 }

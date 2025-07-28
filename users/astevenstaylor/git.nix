@@ -1,10 +1,5 @@
 # A home-manager configuration for Git
 {
-    config,
-    inputs,
-    outputs,
-    osConfig,
-    pkgs,
     ...
 }: {
   programs.git = {

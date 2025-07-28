@@ -1,4 +1,8 @@
-{pkgs, ...} :{
+{ pkgs, ...} :{
+
+  imports = [
+    ./anyrun.nix
+  ];
 
   wayland.windowManager.hyprland = {
     enable = true;
@@ -11,8 +15,13 @@
     settings = {
       "$mod" = "SUPER";
 
+      input = {
+        kb_layout = "gb";
+      };
+
       bind = [
         "$mod, Return, exec, kitty"
+        "$mod, Space, exec, anyrun"
       ];
     };
   };

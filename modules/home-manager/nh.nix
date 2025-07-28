@@ -1,9 +1,5 @@
 {
   config,
-  inputs,
-  outputs,
-  osConfig,
-  pkgs,
   ...
 }: {
   programs.nh = {
